@@ -1,0 +1,71 @@
+#include <iostream>
+#include <iomanip>
+#include <cstdlib>
+#include <ctime>
+#include <cmath>
+using namespace std;
+
+int main()
+{
+	int magic, guess, tries = 0;
+	char answer;
+	
+	  
+	
+	
+	do
+	{
+		cout << "Would you like to play my Number Guessing Game?[y,n]";
+		cin >> answer;
+		cout << endl;
+		srand(time(0)); //seed random number generator
+		magic = rand() % 20 + 1; // random number between 1 and 20   
+		if (answer == 'y')
+		{   
+			do
+			{   
+				
+				cout << "Guess My Number Game!!\n";
+				tries++;
+				cout << "Enter a guess between 1 and 20 : \n";
+				cin >> guess;
+				
+				if (guess == magic)
+					{					
+						cout << "You are correct!\n"<<endl;
+						cout << "You got it in " <<tries <<" attempt(s).\n";
+							if (tries > 5)
+								{ cout<<"You're pretty bad at this aren't you?\n";}
+							else
+								{ cout<<"You're good.\n";}
+						tries = 0;
+					}
+				else 
+					{
+
+						if (guess > 20 || guess < 1)
+							{
+								cout << "Invalid guess! Try again.\n"<<endl;
+								tries--;
+							}
+
+
+						else 
+							{
+								cout<<"Sorry, try again."<<endl;
+
+						if (guess > magic)
+						cout << "You are too High!\n"<<endl;
+						else 
+						cout << "You are too low.\n" <<endl;										
+					}
+				}
+			}while (guess != magic);
+		}
+		else
+		{cout << "Go away then.\n";}
+	}while (answer == 'y');
+
+	return 0;
+}
+

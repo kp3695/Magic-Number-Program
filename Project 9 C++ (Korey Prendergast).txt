@@ -1,0 +1,132 @@
+/*Korey Prendergast 
+SCI-120
+Professor Creaco
+Project 9*/
+
+#include <iostream>
+
+#include <iomanip>
+
+#include <cstdlib>
+
+#include <ctime>
+
+#include <cmath>
+
+using namespace std;
+
+
+
+int main()
+
+{
+
+	int magic, guess, tries = 0;
+
+	char response;
+
+	
+
+	  
+
+	
+
+	
+
+	do
+
+	{
+
+		cout << "Welcome to the magic number guessing game would you like to play? Enter y for yes \n";
+
+		cin >> response;
+
+		cout << endl;
+
+		srand(time(0)); // This is the seed random number generator
+
+		magic = rand() % 20 + 1; // This is the random number between 1 and 20   
+
+		if (response == 'y')
+
+		{   
+
+			do
+
+			{   
+				
+
+				cout << "Guess a number between 1 and 20 : \n";
+
+				cin >> guess;
+
+				
+
+				if (guess == magic)
+
+					{					
+
+						cout << "That number is correct!\n"<<endl;
+
+						cout << "It took you " <<tries <<" guessus before you got it right(s).\n";
+
+						
+
+					}
+
+				else 
+
+					{
+
+
+
+						if (guess > 20 || guess < 1)
+
+							{
+
+								cout << "You guessed the wrong number! Guess again.\n"<<endl;
+
+								tries--;
+
+							}
+
+
+
+
+
+						else 
+
+							{
+
+								cout<<"Sorry, try again."<<endl;
+
+
+
+						if (guess > magic)
+
+						cout << "You guess is too high.\n"<<endl;
+
+						else 
+
+						cout << "Your guess is too low.\n" <<endl;										
+
+					}
+
+				}
+
+			}while (guess != magic);
+
+		}
+
+	
+
+	}while (response == 'y');
+
+
+
+	return 0;
+
+}
+
+
+

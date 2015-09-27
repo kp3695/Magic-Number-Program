@@ -1,0 +1,80 @@
+#include<iostream>
+#include<cstdlib>
+#include<ctime>
+#include<cstdio>
+#include<iomanip>
+
+
+using namespace std;
+
+
+int main()
+
+{
+
+    int magic, guess, c;
+	double numbers;
+	double total=0;
+	unsigned int seed;
+    seed = time(NULL);
+    srand(seed);
+   
+
+    //magic = rand() % 20 + 1;
+	cout << "Guess an interger between 1 and 20!!"<<endl;
+	cout << "How many numbers would you like to try your luck at?:" <<endl;
+	cin >> numbers;
+	c = numbers + 1;
+
+
+    for (int numbers=1; numbers < c; numbers++)
+	{
+		magic=rand()%20+1;
+
+		for (int i=1; i<4; i++)
+		{
+			cout << "Enter guess #"<<i<<" for value #"<<numbers <<endl;
+			cin >> guess;
+			cout <<endl;
+
+			if (guess == magic)
+					{					
+						cout << "You are correct!\n"<<endl;
+						cout<<"You guessed correctly on the "<<i<<" attempt.\n";
+						total++;
+						i=4; 
+					}
+			else 
+			{
+			if (guess > 20 || guess < 1)
+					{
+						cout << "Invalid guess! Try again.\n"<<endl;
+						i--;
+					}
+
+
+			else 
+			{
+				cout<<"Sorry, try again."<<endl;
+
+				if (guess > magic)
+					cout << "You are too High!\n"<<endl;
+				else 
+					cout << "You are too low.\n" <<endl;
+			}
+			}
+
+		}
+
+		if (guess != magic)
+		{
+		cout << "The magic number is "<<magic << "."<<endl;
+		}
+
+	}
+
+	cout << "Your success rate was "<<(total/numbers)*100<<"%\n"<<endl;
+   
+	
+return 0;
+}
